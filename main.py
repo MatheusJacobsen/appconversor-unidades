@@ -1,3 +1,8 @@
+# App para Conversão de Unidades
+# Unidades - volume e massa
+# SEL0456 - Desenvolvimento de Software para Sistemas Embarcados com Sistemas Operacionais
+# Matheus Marques Jacobsen - 10312403
+
 # GTK Import
 
 import gi
