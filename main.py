@@ -26,15 +26,15 @@ class TheApp:
 
         # Get Objects
         self.window = self.builder.get_object('window')
-        self.liststore = Gtk.ListStore(str,str)
+        self.liststore = Gtk.ListStore(float,float)
 
-        colors = [
-            ['#ID:1', 'Opção 1'],
-            ['#ID:2', 'Opção 2'],
-            ['#ID:3', 'Opção 3']]
+        units_mass = [
+            ['#ID:1', 'Opção 1','Kilogram'],
+            ['#ID:2', 'Opção 2', 'Oz'],
+            ['#ID:3', 'Opção 3','Pounds']]
 
-        for color in colors:
-            self.liststore.append(color)
+        for unit in units_mass:
+            self.liststore.append(unit)
 
         self.combo = self.builder.get_object('combo')
         self.combo.set_model(self.liststore)
@@ -42,5 +42,5 @@ class TheApp:
         renderer_text = Gtk.CellRendererText()
         self.combo.pack_start(renderer_text, True)
 
-        self.combo.add_attribute(renderer_text, "text", 1)
+        self.combo.add_attribute(renderer_text, "text", 3)
 
