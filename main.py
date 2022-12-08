@@ -3,7 +3,6 @@
 # SEL0456 - Desenvolvimento de Software para Sistemas Embarcados com Sistemas Operacionais
 # Matheus Marques Jacobsen - 10312403
 
-
 # GTK Import
 
 import gi
@@ -44,3 +43,35 @@ class TheApp:
 
         self.combo.add_attribute(renderer_text, "text", 3)
 
+        self.combo.set_activate(0)
+
+        self.builder.connect_signals(self)
+
+        self.window.show()
+
+    def on_window_destroy(self, widget):
+        '''Classical Window Close Button'''
+        Gtk.main_quit()
+
+    def on_button_clicked(self, button):
+        '''Do something...'''
+        print("Gostaria de converter massa? Digite 1.")
+        print("Gostaria de converter volume? Digite 2.")
+
+    def on_combo_changed(self, widget):
+        '''Verify which option was selected'''
+        model = widget.get_model()
+        active = widget.get_active()
+        if active >= 0:
+            code = model[active][0]
+            print('Opção selecionada: {}'.format(code))
+        else:
+            print('Sem opção.')
+
+
+if _name_ == '_main_':
+    try:
+        gui = TheApp()
+        Gtk.main()
+    except KeyboardInterrupt:
+        pass
