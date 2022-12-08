@@ -10,7 +10,7 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
-window = Gtk.Window(title="Hello World")
+window = Gtk.Window(title="Bem vindo ao App: Conversor de Unidades")
 window.show()
 window.connect("destroy", Gtk.main_quit)
 Gtk.main()
@@ -22,7 +22,7 @@ class TheApp:
 
     def __init__(self):
         self.builder = Gtk.Builder()
-        self.builder.add_from_file('units.glade')
+        self.builder.add_from_file('combo_units.glade')
 
         # Get Objects
         self.window = self.builder.get_object('window')
@@ -44,4 +44,3 @@ class TheApp:
 
         self.combo.add_attribute(renderer_text, "text", 1)
 
-        
