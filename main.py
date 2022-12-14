@@ -97,3 +97,10 @@ class TheApp:
             self.unity_from.set_model(self.mass_units_list)
         if active == 1:
             self.unity_from.set_model(self.volume_units_list)
+
+if __name__ == '__main__':
+    try:
+        gui = TheApp()
+        Gtk.main()
+    except KeyboardInterrupt:
+        pass
