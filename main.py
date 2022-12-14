@@ -29,3 +29,27 @@ class TheApp:
         self.mass_units_list = Gtk.ListStore(int, str)
         self.volume_units_list = Gtk.ListStore(int, str)
 
+        # Interface
+        quantities = [
+            [1, 'Massa'],
+            [2, 'Volume']]
+
+        for qty in quantities:
+            self.quantities_list.append(qty)
+
+        mass_units = [
+            [1, 'Kilos (kg)'],
+            [2, 'Libras (lb)'],
+            [3, 'Onça (oz)']
+        ]
+
+        volume_units = [
+            [1, 'Milímetros Cúbicos (mm³)'],
+            [2, 'Centímetros Cúbicos (cm³)'],
+            [3, 'Litros (l)']]
+
+        for unity in mass_units:
+            self.mass_units_list.append(unity)
+
+        for unity in volume_units:
+            self.volume_units_list.append(unity)
