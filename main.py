@@ -53,3 +53,20 @@ class TheApp:
 
         for unity in volume_units:
             self.volume_units_list.append(unity)
+
+        # Associando a array (ListStore) ao ComboBox
+        self.combo1 = self.builder.get_object('combo_1')
+        self.combo1.set_model(self.quantities_list)
+
+        self.unity_from = self.builder.get_object('combo_origin')
+        self.unity_to = self.builder.get_object('combo_end')
+        self.unity_from.set_model(self.mass_units_list)
+        self.unity_to.set_model(self.mass_units_list)
+
+        # Renbder de texto ao ComboBox
+        renderer_text = Gtk.CellRendererText()
+        self.combo1.pack_start(renderer_text, True)
+        self.unity_from.pack_start(renderer_text, True)
+        self.unity_to.pack_start(renderer_text, True)
+
+        
