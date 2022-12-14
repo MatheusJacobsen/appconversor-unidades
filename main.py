@@ -69,4 +69,31 @@ class TheApp:
         self.unity_from.pack_start(renderer_text, True)
         self.unity_to.pack_start(renderer_text, True)
 
-        
+        # Coluna a ser mostrada
+        self.combo1.add_attribute(renderer_text, "text", 1)
+        self.unity_from.add_attribute(renderer_text, "text", 1)
+        self.unity_to.add_attribute(renderer_text, "text", 1)
+
+        # Opção ativa default
+        self.combo1.set_active(0)
+
+        # Connect signals
+        self.builder.connect_signals(self)
+
+        # Everything is ready
+        self.window.show()
+
+    def on_window_destroy(self, widget):
+        '''Classical window close button.'''
+        Gtk.main_quit()
+
+        def on_combo_1_changed(self, widget):
+        '''Verify which option is selected'''
+        model = widget.get_model()
+        active = widget.get_active()
+        option = model[active][1]
+        print('Opção selecionada: {}'.format(option))
+        if active == 0:
+            self.unity_from.set_model(self.mass_units_list)
+        if active == 1:
+            self.unity_from.set_model(self.volume_units_list)
